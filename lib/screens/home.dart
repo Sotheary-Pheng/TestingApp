@@ -1,9 +1,12 @@
 import 'package:app_testing/create_view.dart';
 import 'package:app_testing/models/album.dart';
 import 'package:app_testing/repo/crud.dart';
+import 'package:app_testing/screens/delete_album.dart';
+import 'package:app_testing/screens/update_album.dart';
 import 'package:app_testing/viewalbum.dart';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -44,8 +47,24 @@ class _HomeState extends State<Home> {
             },
             child: Text('Create Album'),
           ),
-          ElevatedButton(onPressed: () {}, child: Text('Update Album')),
-          ElevatedButton(onPressed: () {}, child: Text('Delete Album')),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UpdateAlbum()),
+              );
+            },
+            child: Text('Update Album'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DeleteAlbum()),
+              );
+            },
+            child: Text('Delete Album'),
+          ),
         ],
       ),
     );

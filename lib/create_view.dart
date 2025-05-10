@@ -14,7 +14,10 @@ class _CreateViewState extends State<CreateView> {
   Future<Album>? futureAlbum;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('')), body: _buildBody(context));
+    return Scaffold(
+      appBar: AppBar(title: Text('Create Album')),
+      body: _buildBody(context),
+    );
   }
 
   _buildBody(BuildContext context) {

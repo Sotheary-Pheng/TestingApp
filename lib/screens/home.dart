@@ -1,5 +1,7 @@
+import 'package:app_testing/create_view.dart';
 import 'package:app_testing/models/album.dart';
 import 'package:app_testing/repo/crud.dart';
+import 'package:app_testing/viewalbum.dart';
 
 import 'package:flutter/material.dart';
 
@@ -20,16 +22,31 @@ class _HomeState extends State<Home> {
 
   Widget build(BuildContext context) {
     return Center(
-      child: FutureBuilder<Album>(
-        future: futureAlbum,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Text(snapshot.data!.title);
-          } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          }
-          return CircularProgressIndicator();
-        },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Viewalbum()),
+              );
+            },
+            child: Text('View Album'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreateView()),
+              );
+            },
+            child: Text('Create Album'),
+          ),
+          ElevatedButton(onPressed: () {}, child: Text('Update Album')),
+          ElevatedButton(onPressed: () {}, child: Text('Delete Album')),
+        ],
       ),
     );
   }
